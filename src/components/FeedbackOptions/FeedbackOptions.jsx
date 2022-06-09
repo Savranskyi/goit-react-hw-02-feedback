@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  ListOfButtons,
+  ButonsList,
   Item,
   GoodButton,
   NeutralButton,
@@ -11,7 +11,7 @@ import {
 export function FeedbackOptions({ onLeaveFeedback }) {
   return (
     <>
-      <ListOfButtons>
+      <ButonsList>
         <Item>
           <GoodButton value="good" onClick={e => onLeaveFeedback(e)}>
             Good
@@ -27,7 +27,7 @@ export function FeedbackOptions({ onLeaveFeedback }) {
             Bad
           </BadButton>
         </Item>
-      </ListOfButtons>
+      </ButonsList>
     </>
   );
 }

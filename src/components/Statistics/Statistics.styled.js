@@ -7,13 +7,13 @@ export const Title = styled.p`
   text-align: center;
 `;
 
-export const StatList = styled.ul`
+export const StatisticsList = styled.ul`
   display: flex;
   flex-direction: column;
   row-gap: 5px;
 `;
 
-export const StatItem = styled.li`
+export const StatisticsItem = styled.li`
   font-size: 16px;
   text-align: center;
 `;

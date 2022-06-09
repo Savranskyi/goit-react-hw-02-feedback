@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const ListOfButtons = styled.ul`
+export const ButonsList = styled.ul`
   display: flex;
   column-gap: 5px;
   justify-content: center;

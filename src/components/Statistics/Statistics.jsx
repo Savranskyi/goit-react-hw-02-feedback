@@ -1,5 +1,10 @@
 import PropTypes from 'prop-types';
-import { Title, StatList, StatItem, Amount } from './Statistics.styled';
+import {
+  Title,
+  StatisticsList,
+  StatisticsItem,
+  Amount,
+} from './Statistics.styled';
 import { Notification } from '../Notification/Notification';
 
 export function Statistics({ good, neutral, bad, total, positivePercentage }) {
@@ -7,23 +12,23 @@ export function Statistics({ good, neutral, bad, total, positivePercentage }) {
     <>
       <Title>Statistics</Title>
       {total ? (
-        <StatList>
-          <StatItem>
+        <StatisticsList>
+          <StatisticsItem>
             Good: <Amount>{good}</Amount>
-          </StatItem>
-          <StatItem>
+          </StatisticsItem>
+          <StatisticsItem>
             Neutral: <Amount>{neutral}</Amount>
-          </StatItem>
-          <StatItem>
+          </StatisticsItem>
+          <StatisticsItem>
             Bad: <Amount>{bad}</Amount>
-          </StatItem>
-          <StatItem>
+          </StatisticsItem>
+          <StatisticsItem>
             Total: <Amount>{total}</Amount>
-          </StatItem>
-          <StatItem>
+          </StatisticsItem>
+          <StatisticsItem>
             Positive feedback: <Amount>{positivePercentage}%</Amount>
-          </StatItem>
-        </StatList>
+          </StatisticsItem>
+        </StatisticsList>
       ) : (
         <Notification message="There is no feedback" />
       )}
