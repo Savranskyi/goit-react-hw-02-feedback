@@ -1,37 +1,28 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  ButonsList,
-  Item,
-  GoodButton,
-  NeutralButton,
-  BadButton,
-} from './FeedbackOptions.styled';
+import s from './FeedbackOptions.module.css';
 
-export function FeedbackOptions({ onLeaveFeedback }) {
+function FeedbackOptions({ options, onLeaveFeedback }) {
   return (
-    <>
-      <ButonsList>
-        <Item>
-          <GoodButton value="good" onClick={e => onLeaveFeedback(e)}>
-            Good
-          </GoodButton>
-        </Item>
-        <Item>
-          <NeutralButton value="neutral" onClick={e => onLeaveFeedback(e)}>
-            Neutral
-          </NeutralButton>
-        </Item>
-        <Item>
-          <BadButton value="bad" onClick={e => onLeaveFeedback(e)}>
-            Bad
-          </BadButton>
-        </Item>
-      </ButonsList>
-    </>
+    <div>
+      <ul>
+        {options.map(option => (
+          <button
+            className={`${s.button} `}
+            type="button"
+            key={option}
+            onClick={onLeaveFeedback}
+          >
+            {option}
+          </button>
+        ))}
+      </ul>
+    </div>
   );
 }
 
+export default FeedbackOptions;
+
 FeedbackOptions.propTypes = {
   onLeaveFeedback: PropTypes.func,
+  options: PropTypes.arrayOf(PropTypes.string),
 };

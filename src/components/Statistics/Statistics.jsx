@@ -1,45 +1,30 @@
 import PropTypes from 'prop-types';
-import {
-  Title,
-  StatisticsList,
-  StatisticsItem,
-  Amount,
-} from './Statistics.styled';
-import { Notification } from '../Notification/Notification';
+import Notification from '../Notification/Notification';
+import s from './Statistics.module.css';
 
-export function Statistics({ good, neutral, bad, total, positivePercentage }) {
+function Statistics({ good, neutral, bad, positivePercentage, total }) {
   return (
-    <>
-      <Title>Statistics</Title>
-      {total ? (
-        <StatisticsList>
-          <StatisticsItem>
-            Good: <Amount>{good}</Amount>
-          </StatisticsItem>
-          <StatisticsItem>
-            Neutral: <Amount>{neutral}</Amount>
-          </StatisticsItem>
-          <StatisticsItem>
-            Bad: <Amount>{bad}</Amount>
-          </StatisticsItem>
-          <StatisticsItem>
-            Total: <Amount>{total}</Amount>
-          </StatisticsItem>
-          <StatisticsItem>
-            Positive feedback: <Amount>{positivePercentage}%</Amount>
-          </StatisticsItem>
-        </StatisticsList>
+    <div className={s.statContainer}>
+      {total > 0 ? (
+        <>
+          <p className={`${s.stat}`}>Good: {good}</p>
+          <p className={`${s.stat}`}>Neutral: {neutral}</p>
+          <p className={`${s.stat}`}>Bad: {bad}</p>
+          <p className={s.stat}>Total: {total}</p>
+          <p className={`${s.stat} ${positivePercentage}`}>
+            Positive feedback: {positivePercentage}%
+          </p>
+        </>
       ) : (
-        <Notification message="There is no feedback" />
+        <Notification message={'There is no feedback'} />
       )}
-    </>
+    </div>
   );
 }
 
+export default Statistics;
+
 Statistics.propTypes = {
-  good: PropTypes.number,
-  neutral: PropTypes.number,
-  bad: PropTypes.number,
-  total: PropTypes.number,
   positivePercentage: PropTypes.number,
+  total: PropTypes.number,
 };
